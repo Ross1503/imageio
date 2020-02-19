@@ -7,7 +7,7 @@ addons:
     packages:
     - libfreeimage3
 
-# Only run travis build on push for master branch
+#  Only run travis build on push for master branch
 branches:
   only:
     - master
