@@ -54,6 +54,49 @@ def test_get_exe_installed():
     os.environ["IMAGEIO_FFMPEG_EXE"] = ""
     exe = os.getenv("IMAGEIO_FFMPEG_EXE", None)
     print(exe)
+    
+    def get_platform():
+        bits = struct.calcsize("P") * 8
+        if sys.platform.startswith("linux"):
+            print("11111111111111111")
+            return "linux{}".format(bits)
+        elif sys.platform.startswith("win"):
+            print("2222222222222222222")
+            return "win{}".format(bits)
+        elif sys.platform.startswith("cygwin"):
+            print("333333333333333333")
+            return "win{}".format(bits)
+        elif sys.platform.startswith("darwin"):
+            print("44444444444444444444444444444")
+            return "osx{}".format(bits)
+        else:  # pragma: no cover
+            return None
+        
+    plat = get_platform()
+    print(plat)
+    
+
+    # The Linux static builds (https://johnvansickle.com/ffmpeg/) are build
+    # for Linux kernels 2.6.32 and up (at the time of writing, ffmpeg v4.1).
+    # This corresponds to CentOS 6. This means we should use manylinux2010 and not
+    # manylinux1.
+    # manylinux1: https://www.python.org/dev/peps/pep-0513
+    # manylinux2010: https://www.python.org/dev/peps/pep-0571
+
+
+    # Platform string -> ffmpeg filename
+    FNAME_PER_PLATFORM = {
+        "osx64": "ffmpeg-osx64-v4.1",  # 10.9+
+        "win32": "ffmpeg-win32-v4.1.exe",  # Windows 7+
+        "win64": "ffmpeg-win64-v4.1.exe",
+        # "linux32": "ffmpeg-linux32-v4.1",
+        "linux64": "ffmpeg-linux64-v4.1",  # Kernel 2.6.32+
+    }
+
+
+
+
+
     path = imageio_ffmpeg.get_ffmpeg_exe()
     #path = "/usr/bin/ffmpeg"
     # cleanup
