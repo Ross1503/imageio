@@ -43,7 +43,7 @@ def setup_module():
 
 def test_get_exe_installed():
     import imageio_ffmpeg
-
+    import struct
     # backup any user-defined path
     if "IMAGEIO_FFMPEG_EXE" in os.environ:
         oldpath = os.environ["IMAGEIO_FFMPEG_EXE"]
