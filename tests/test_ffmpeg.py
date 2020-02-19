@@ -50,6 +50,7 @@ def test_get_exe_installed():
     else:
         oldpath = ""
     # Test if download works
+    print(oldpath)
     os.environ["IMAGEIO_FFMPEG_EXE"] = ""
     path = imageio_ffmpeg.get_ffmpeg_exe()
     path = "/usr/bin/ffmpeg"
@@ -58,7 +59,6 @@ def test_get_exe_installed():
     if oldpath:
         os.environ["IMAGEIO_FFMPEG_EXE"] = oldpath
     print(path)
-    print(oldpath)
     assert os.path.isfile(path)
 
 
