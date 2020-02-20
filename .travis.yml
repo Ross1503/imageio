@@ -120,8 +120,8 @@ install:
     - if [ "${TEST_UNIT}" == "1" ]; then
         pip install -q --upgrade imageio-ffmpeg;
         pip install -q numpy pillow psutil coveralls;
-        #pip install -q --upgrade pytest pytest-cov;
       fi;
+    # pip install -q --upgrade pytest pytest-cov;
     - if [ "${TEST_STYLE}" == "1" ]; then
         pip install -q black flake8 sphinx numpydoc;
       fi;
