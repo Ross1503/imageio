@@ -57,6 +57,7 @@ def test_overload_fps():
 
     # Native
     r = imageio.get_reader("imageio:cockatoo.mp4")
+    print(r)
     assert r.count_frames() == 280  # native
     assert int(r._meta["fps"] * r._meta["duration"] + 0.5) == 280
     ims = [im for im in r]
