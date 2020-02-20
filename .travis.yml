@@ -117,7 +117,8 @@ install:
     # Install dependencies depending on ENV
     - which pip
     - sudo which pip
-    - sudo pip install imageio-ffmpeg
+    - which ffmpeg
+    - sudo which ffmpeg
     - pip install invoke
     - invoke clean
     - if [ "${TEST_UNIT}" == "1" ]; then
