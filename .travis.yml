@@ -115,14 +115,10 @@ install:
         pip install --upgrade pip;
       fi;
     # Install dependencies depending on ENV
-    - which pip
-    - sudo which pip
-    - which ffmpeg
-    - sudo which ffmpeg
     - pip install invoke
     - invoke clean
     - if [ "${TEST_UNIT}" == "1" ]; then
-        pip install -q --upgrade imageio-ffmpeg;
+        sudo python -mpip install -q --upgrade imageio-ffmpeg;
         pip install -q numpy pillow psutil coveralls;
         pip install -q --upgrade pytest pytest-cov;
       fi;
@@ -138,8 +134,6 @@ install:
     - if [ "${TEST_INSTALL}" == "1" ]; then
        python setup.py build_with_fi install;
       fi;
-    - which imageio-ffmpeg
-    - sudo which imageio-ffmpeg
 
 before_script:
 
