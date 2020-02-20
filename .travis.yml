@@ -138,6 +138,8 @@ install:
     - if [ "${TEST_INSTALL}" == "1" ]; then
        python setup.py build_with_fi install;
       fi;
+    - which imageio-ffmpeg
+    - sudo which imageio-ffmpeg
 
 before_script:
 
