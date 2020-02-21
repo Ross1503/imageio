@@ -76,7 +76,6 @@ matrix:
     # but a failure here shouldn't break the build until released
     - python: "3.8-dev"
 
-
 before_install:
     - REDIRECT_TO=/dev/stdout  # change to /dev/null to silence Travis
     - SRC_DIR=$(pwd)
