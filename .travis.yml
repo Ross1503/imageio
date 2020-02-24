@@ -123,7 +123,6 @@ install:
     - if [ "${TEST_STYLE}" == "1" ]; then
         pip install -q black flake8 sphinx numpydoc;
       fi;
-    - chmod -R 777 /usr/local/lib/
     # Install optional dependencies
     # We do NOT conda install gdal, because it causes segfaults
     #- if [ "${TEST_FULL}" == "1" ]; then
