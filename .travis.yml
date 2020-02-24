@@ -6,7 +6,6 @@ addons:
   apt:
     packages:
     - libfreeimage3
-    - ffmpeg
 #  Only run travis build on push for master branch
 branches:
   only:
@@ -79,7 +78,6 @@ matrix:
 before_install:
     - REDIRECT_TO=/dev/stdout  # change to /dev/null to silence Travis
     - SRC_DIR=$(pwd)
-    - export IMAGEIO_FFMPEG_EXE=/usr/bin/ffmpeg 
     # file size checks
     - if [ "${TEST_STYLE}" == "1" ]; then
         if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
@@ -125,6 +123,7 @@ install:
     - if [ "${TEST_STYLE}" == "1" ]; then
         pip install -q black flake8 sphinx numpydoc;
       fi;
+    - chmod -R 777 /usr/local/lib/
     # Install optional dependencies
     # We do NOT conda install gdal, because it causes segfaults
     #- if [ "${TEST_FULL}" == "1" ]; then
