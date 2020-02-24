@@ -79,7 +79,7 @@ matrix:
 before_install:
     - REDIRECT_TO=/dev/stdout  # change to /dev/null to silence Travis
     - SRC_DIR=$(pwd)
-    - export=$PATH:/usr/bin/ffmpeg
+    - export IMAGEIO_FFMPEG_EXE=/usr/bin/ffmpeg 
     # file size checks
     - if [ "${TEST_STYLE}" == "1" ]; then
         if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
