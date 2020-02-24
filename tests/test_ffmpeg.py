@@ -40,6 +40,8 @@ def get_ffmpeg_pids():
 def setup_module():
     pass
 
+@pytest.mark.skipif("$TRAVIS_CPU_ARCH" == "arm64",
+                    reason="skiped for ARM64")
 def test_get_exe_installed():
     import imageio_ffmpeg
     # backup any user-defined path
