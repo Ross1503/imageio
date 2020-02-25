@@ -64,26 +64,25 @@ def test_get_exe_installed():
         skip("Skip for arm64")
 
 def test_get_exe_env():
-        import imageio_ffmpeg
-        # backup any user-defined path
-        if "IMAGEIO_FFMPEG_EXE" in os.environ:
-            oldpath = os.environ["IMAGEIO_FFMPEG_EXE"]
-        else:
-            oldpath = ""
-        # set manual path
-        path = "invalid/path/to/my/ffmpeg"
-        os.environ["IMAGEIO_FFMPEG_EXE"] = path
-        try:
-            path2 = imageio_ffmpeg.get_ffmpeg_exe()
-        except Exception:
-            path2 = "none"
-            pass
-        # cleanup
-        os.environ.pop("IMAGEIO_FFMPEG_EXE")
-        if oldpath:
-            os.environ["IMAGEIO_FFMPEG_EXE"] = oldpath
-        assert path == path2
-    
+    import imageio_ffmpeg
+    # backup any user-defined path
+    if "IMAGEIO_FFMPEG_EXE" in os.environ:
+        oldpath = os.environ["IMAGEIO_FFMPEG_EXE"]
+    else:
+        oldpath = ""
+    # set manual path
+    path = "invalid/path/to/my/ffmpeg"
+    os.environ["IMAGEIO_FFMPEG_EXE"] = path
+    try:
+        path2 = imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        path2 = "none"
+        pass
+    # cleanup
+    os.environ.pop("IMAGEIO_FFMPEG_EXE")
+    if oldpath:
+        os.environ["IMAGEIO_FFMPEG_EXE"] = oldpath
+    assert path == path2
 
 
 def test_select():
