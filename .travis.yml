@@ -130,7 +130,7 @@ install:
     - if [ "${TEST_FULL}" == "1" ]; then
        pip install simpleitk astropy;
       fi;
-     Install imageio on one/some env
+    # Install imageio on one/some env
     - if [ "${TEST_INSTALL}" == "1" ]; then
        python setup.py build_with_fi install;
       fi;
