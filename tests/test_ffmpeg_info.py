@@ -60,7 +60,7 @@ def test_overload_fps():
     assert r.count_frames() == 280  # native
     assert int(r._meta["fps"] * r._meta["duration"] + 0.5) == 280
     ims = [im for im in r]
-    assert len(ims) == (280, 281)
+    assert len(ims) in (280, 281)
     # imageio.mimwrite('~/parot280.gif', ims[:30])
 
     # Less
