@@ -1,6 +1,6 @@
 # core
 
-numpy
+numpy==1.16.0
 pillow
 
 # extras
