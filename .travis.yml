@@ -132,7 +132,7 @@ install:
         cd cmake-3.11.0;
         ./bootstrap;
         make;
-        make install;
+        sudo make install;
         pip install scikit-build;
         pip install simpleitk astropy;
       fi;
