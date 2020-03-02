@@ -127,7 +127,13 @@ install:
     # Install optional dependencies
     # We do NOT conda install gdal, because it causes segfaults
     - if [ "${TEST_FULL}" == "1" ]; then
-        pip install astropy;
+        wget https://github.com/Kitware/CMake/releases/download/v3.11.0/cmake-3.11.0.tar.gz;
+        tar -xvf cmake-3.11.0.tar.gz;
+        cd cmake-3.11.0;
+        ./bootstrap;
+        make;
+        make install;
+        pip install simpleitk astropy;
       fi;
     # Install imageio on one/some env
     - if [ "${TEST_INSTALL}" == "1" ]; then
