@@ -133,6 +133,7 @@ install:
         ./bootstrap;
         make;
         make install;
+        pip install scikit-build;
         pip install simpleitk astropy;
       fi;
     # Install imageio on one/some env
