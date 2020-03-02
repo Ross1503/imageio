@@ -127,6 +127,7 @@ install:
     # Install optional dependencies
     # We do NOT conda install gdal, because it causes segfaults
     - if [ "${TEST_FULL}" == "1" ]; then
+       pip install scikit-build;
        pip install simpleitk astropy;
       fi;
     # Install imageio on one/some env
