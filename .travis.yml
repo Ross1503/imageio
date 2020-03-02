@@ -126,10 +126,10 @@ install:
       fi;
     # Install optional dependencies
     # We do NOT conda install gdal, because it causes segfaults
-    - if [ "${TEST_FULL}" == "1" ]; then
-       pip install scikit-build;
-       pip install simpleitk astropy;
-      fi;
+    #- if [ "${TEST_FULL}" == "1" ]; then
+    #   pip install scikit-build;
+    #   pip install simpleitk astropy;
+    #  fi;
     # Install imageio on one/some env
     - if [ "${TEST_INSTALL}" == "1" ]; then
        python setup.py build_with_fi install;
