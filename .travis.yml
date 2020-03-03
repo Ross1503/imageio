@@ -116,9 +116,8 @@ install:
     # Install dependencies depending on ENV
     - pip install invoke
     - invoke clean
-    - pip install numpy==1.15
+    #- pip install numpy==1.15
     - if [ "${TEST_UNIT}" == "1" ]; then
-        pip install --upgrade pip
         pip install -q --upgrade imageio-ffmpeg;
         pip install -q numpy pillow psutil coveralls;
         pip install -q --upgrade pytest pytest-cov;
