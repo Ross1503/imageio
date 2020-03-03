@@ -59,7 +59,7 @@ matrix:
       arch: arm64
       sudo: true
       python: "3.7"
-      env: TEST_UNIT=1 TEST_FULL=1
+      env: TEST_UNIT=1
     - os: linux
       dist: xenial
       sudo: true
@@ -116,7 +116,6 @@ install:
     # Install dependencies depending on ENV
     - pip install invoke
     - invoke clean
-    #- pip install numpy==1.15
     - if [ "${TEST_UNIT}" == "1" ]; then
         pip install -q --upgrade imageio-ffmpeg;
         pip install -q numpy==1.15 pillow psutil coveralls;
@@ -128,14 +127,6 @@ install:
     # Install optional dependencies
     # We do NOT conda install gdal, because it causes segfaults
     - if [ "${TEST_FULL}" == "1" ]; then
-        wget https://github.com/Kitware/CMake/releases/download/v3.11.0/cmake-3.11.0.tar.gz;
-        tar -xvf cmake-3.11.0.tar.gz;
-        cd cmake-3.11.0;
-        ./bootstrap;
-        make;
-        travis_wait 60 sudo make install;
-        pip install cython;
-        pip install scikit-build;
         pip install simpleitk astropy;
       fi;
     # Install imageio on one/some env
