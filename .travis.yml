@@ -134,6 +134,7 @@ install:
         ./bootstrap;
         make;
         travis_wait 60 sudo make install;
+        pip install cython;
         pip install scikit-build;
         pip install simpleitk astropy;
       fi;
