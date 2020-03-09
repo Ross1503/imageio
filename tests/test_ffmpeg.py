@@ -8,8 +8,9 @@ import sys
 import gc
 import time
 import threading
-import psutil
 import platform
+import psutil
+
 import numpy as np
 
 from pytest import raises, skip
@@ -42,10 +43,9 @@ def setup_module():
 
 def test_get_exe_installed():
     if platform.machine() == "aarch64":
-        skip("Skip for arm64")
+        skip("Skip for aarch64")
     else:
         import imageio_ffmpeg
-        import pytest
         # backup any user-defined path
         if "IMAGEIO_FFMPEG_EXE" in os.environ:
             oldpath = os.environ["IMAGEIO_FFMPEG_EXE"]
