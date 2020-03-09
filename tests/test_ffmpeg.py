@@ -42,6 +42,7 @@ def setup_module():
 
 
 def test_get_exe_installed():
+    print($TRAVIS_CPU_ARCH)
     if "$TRAVIS_CPU_ARCH" == "arm64":
         skip("Skip for arm64")
     else:
