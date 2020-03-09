@@ -43,6 +43,7 @@ def setup_module():
 
 def test_get_exe_installed():
     print(platform.architecture())
+    print(platform.machine())
     if platform.machine() == "arm64":
         skip("Skip for arm64")
     else:
