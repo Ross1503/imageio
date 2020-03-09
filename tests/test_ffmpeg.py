@@ -42,8 +42,8 @@ def setup_module():
 
 
 def test_get_exe_installed():
-    echo platform.architecture()
-    if "$TRAVIS_CPU_ARCH" == "arm64":
+    print(platform.architecture())
+    if platform.machine() == "arm64":
         skip("Skip for arm64")
     else:
         import imageio_ffmpeg
