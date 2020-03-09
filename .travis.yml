@@ -25,10 +25,6 @@ matrix:
     - os: linux
       python: "3.6"
       env: TEST_UNIT=0 TEST_STYLE=1
-    - os: linux
-      python: "3.6"
-      arch: arm64
-      env: TEST_UNIT=0 TEST_STYLE=1
     # Special OS'es / interpreters
     - os: windows
       language: bash
