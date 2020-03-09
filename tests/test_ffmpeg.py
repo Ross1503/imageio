@@ -10,7 +10,7 @@ import time
 import threading
 import pytest
 import psutil
-
+import platform
 import numpy as np
 
 from pytest import raises, skip
@@ -42,7 +42,7 @@ def setup_module():
 
 
 def test_get_exe_installed():
-    echo $TRAVIS_CPU_ARCH
+    echo platform.architecture()
     if "$TRAVIS_CPU_ARCH" == "arm64":
         skip("Skip for arm64")
     else:
