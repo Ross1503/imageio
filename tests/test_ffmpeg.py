@@ -42,8 +42,10 @@ def setup_module():
 
 @pytest.mark.skipif("$TRAVIS_CPU_ARCH" == "arm64",
                     reason="skiped for ARM64")
+
+
 def test_get_exe_installed():
-    try: 
+    if "$TRAVIS_CPU_ARCH" == "amd64":
         import imageio_ffmpeg
         # backup any user-defined path
         if "IMAGEIO_FFMPEG_EXE" in os.environ:
@@ -60,7 +62,7 @@ def test_get_exe_installed():
             os.environ["IMAGEIO_FFMPEG_EXE"] = oldpath
         print(path)
         assert os.path.isfile(path)
-    except Exception:
+    else:
         skip("Skip for arm64")
 
 def test_get_exe_env():
